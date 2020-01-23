@@ -15,7 +15,7 @@ module.exports =  {
       html: '/',
       css: '/assets/css',
       js: '/assets/js',
-      assets: '/'
+      assets: '/assets'
     }
   }
 }
