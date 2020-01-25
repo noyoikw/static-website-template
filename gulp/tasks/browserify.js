@@ -4,10 +4,14 @@ const babelify = require('babelify')
 const browserify = require('browserify')
 const source = require('vinyl-source-stream')
 const rename = require('gulp-rename')
+const streamify = require('gulp-streamify')
 const notify = require('gulp-notify')
+const uglify = require('gulp-uglify')
+const gulpIf = require('gulp-if')
 const { sync } = require('glob')
 const { merge } = require('event-stream')
-const config = require('../config')
+const config = require('../settings/config')
+const env = require('../utils/env')
 
 module.exports = function taskBrowserify(cb) {
   const entries = config.js.entries ||
@@ -19,6 +23,7 @@ module.exports = function taskBrowserify(cb) {
       .bundle()
       .on('error', notify.onError('Error: <%= error.message %>'))
       .pipe(source(entry))
+      .pipe(gulpIf(env === 'production', streamify(uglify())))
       .pipe(rename({ extname: config.js.extname + '.js' }))
       .pipe(gulp.dest(config.dir.base.dest + config.dir.dest.js))
   })

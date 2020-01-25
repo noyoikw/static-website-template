@@ -1,6 +1,6 @@
 const fs  = require('fs')
 const del = require('del')
-const config = require('../config')
+const config = require('../settings/config')
 
 module.exports = function taskClean(cb) {
   if (!fs.existsSync(config.dir.base.dest)) fs.mkdirSync(config.dir.base.dest)

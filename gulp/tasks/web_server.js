@@ -1,5 +1,5 @@
 const browserSync = require('browser-sync')
-const config = require('../config')
+const config = require('../settings/config')
 
 module.exports = function taskWebServer(cb) {
   const options = {

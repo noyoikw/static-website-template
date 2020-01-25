@@ -4,12 +4,13 @@ const sass = require('gulp-sass')
 const sourcemaps = require('gulp-sourcemaps')
 const autoprefixer = require('gulp-autoprefixer')
 const notify = require('gulp-notify')
-const config = require('../config')
+const config = require('../settings/config')
+const env = require('../utils/env')
 
 module.exports = function taskSass() {
   const options = {
     sourceMap: true,
-    outputStyle: 'expanded'
+    outputStyle: env === 'production' ? 'compressed' : 'expanded'
   }
   return gulp.src(config.dir.base.src + config.dir.src.sass + '/**/*.scss')
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))

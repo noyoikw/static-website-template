@@ -1,5 +1,5 @@
 const gulp = require('gulp')
-const config = require('../config')
+const config = require('../settings/config')
 const taskAssets = require('./assets')
 const taskEjs = require('./ejs')
 const taskSass = require('./sass')

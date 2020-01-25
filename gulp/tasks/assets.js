@@ -1,5 +1,5 @@
 const gulp = require('gulp')
-const config = require('../config')
+const config = require('../settings/config')
 
 module.exports = function taskAssets() {
   return gulp.src(config.dir.base.src + config.dir.src.assets + '/**/*')

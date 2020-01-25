@@ -4,7 +4,7 @@ const rename = require('gulp-rename')
 const sourcemaps = require('gulp-sourcemaps')
 const plumber = require('gulp-plumber')
 const notify = require('gulp-notify')
-const config = require('../config')
+const config = require('../settings/config')
 
 module.exports = function taskEjs() {
   return gulp.src([
