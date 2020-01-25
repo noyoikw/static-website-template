@@ -4,7 +4,7 @@
 - Gulp
 - EJS
 - Sass
-- Babel
+- Browserify
 - BrowserSync
 
 ## Usage
